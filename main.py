@@ -25,8 +25,8 @@ def find_vacancies():
     params = {'text': 'pyton django flask', 'area': (1, 2), 'page': 0}
     html_data = requests.get(URL, params=params, headers=gen_headers())
     response = html_data.text
-    html_page = bs4.BeautifulSoup(response, "lxml")
-    vacancies = html_page.find_all('div', class_='serp-item')
+    html_parser = bs4.BeautifulSoup(response, "lxml")
+    vacancies = html_parser.find_all('div', class_='serp-item')
     return vacancies
 
 
